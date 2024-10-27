@@ -106,6 +106,16 @@ const Register = () => {
         return hobbiesA.filter(hobby => hobbiesB.includes(hobby)).length;
     };
 
+    const boxStyle = {
+        border: '1px solid #007BFF', // Border color for the box
+        borderRadius: '5px', // Rounded corners for the box
+        backgroundColor: '#f8f9fa', // Light background color for the box
+        padding: '20px',
+        margin: '20px auto', // Center the box
+        width: '80%', // Width of the box
+        textAlign: 'center', // Center text inside the box
+    };
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -129,10 +139,10 @@ const Register = () => {
                     <input type="text" placeholder="Dorm Campus (optional)" value={dormCampus} onChange={(e) => setDormCampus(e.target.value)} />
                 )}
                 <input type="text" placeholder="Major (optional)" value={major} onChange={(e) => setMajor(e.target.value)} />
-                <div>
-                    <h3>Select Your Hobbies:</h3>
+                <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: '10px' }}>
+                    <h3 style={{ width: '100%' }}>Select Your Hobbies:</h3>
                     {hobbyOptions.map((hobby) => (
-                        <label key={hobby}>
+                        <label key={hobby} style={{ flex: '1 0 45%', margin: '10px 0' }}>
                             <input type="checkbox" checked={hobbies.includes(hobby)} onChange={() => handleHobbyChange(hobby)} />
                             {hobby}
                         </label>
@@ -141,13 +151,13 @@ const Register = () => {
                 <button type="submit">Register</button>
             </form>
             {registeredEmail && ( // Display the registered email if available
-                <div>
+                <div style={boxStyle}>
                     <h3>Registered Email:</h3>
                     <p>{registeredEmail}</p>
                 </div>
             )}
             {compatibilityResult && (
-                <div>
+                <div style={boxStyle}>
                     <h3>Most Compatible User:</h3>
                     <p>Name: {compatibilityResult.name}</p>
                     <p>Email: {compatibilityResult.email}</p>
