@@ -1,3 +1,3 @@
 Open Terminal
-Run npm install if npm is not already installed
-Run npm start to access the website
+Run "npm install" if npm is not already installed
+Run "npm start" to access the website
